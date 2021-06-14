@@ -1,0 +1,8 @@
+facebook-scraper
+Flask
+requests
+jsonify
+flask_cors
+pymongo
+datetime
+dnspython
