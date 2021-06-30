@@ -4,9 +4,11 @@ import jsonify
 import requests
 
 url = "http://localhost:5000/get-unprocessed-posts/"
-data = requests.get(url).json()
+data = requests.get(url = url).json()
 
 for post in data['result']:
+    post_id = post['post_id']
+    parsed_dict = {}
     title_dict = {
         'bed': re.compile(r'\d+(?=\s+bed)|$',re.IGNORECASE),
         'bed1' : re.compile(r'\w+(?=/)|$',re.IGNORECASE),
@@ -21,8 +23,6 @@ for post in data['result']:
         'address': re.compile(r'\d+[ ](?:[A-Za-z0-9.-]+[ ]?)+(?:Avenue|Lane|Road|Boulevard|Drive|Street|Ave|Dr|Rd|Blvd|Ln|St)\.?|$',re.IGNORECASE),
         'utilities': re.compile(r'(?<=\butilities are\s)(\w+).group()|$',re.IGNORECASE)
     }
-
-    parsed_dict = {}
 
     for key, rx in title_dict.items():
         match = rx.search(post['listing_title'])
@@ -57,6 +57,12 @@ for post in data['result']:
     if 'baths' in parsed_dict:
         if parsed_dict['bath']!= '' and parsed_dict['baths']:
             del parsed_dict['baths']
-
+    
+    parsed_dict['parsed'] = True
     url = "http://localhost:5000/add-processed-posts/"
-    post=requests.post(url, json = parsed_dict)
+    post = requests.post(url, json = parsed_dict)
+    
+
+    url = "http://localhost:5000/update-parsed-bool/"
+    data = {"post_id":post_id,"parsed":True}
+    result = requests.post(url, json = data)
