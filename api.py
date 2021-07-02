@@ -59,7 +59,7 @@ def get_posts():
 def get_most_recent_post():
     fb_housing_posts = Database.fb_housing_posts
     latest = fb_housing_posts.find_one(sort=[( '_id', pymongo.DESCENDING )])
-    if latest != None:
+    if latest:
         data = {
                 key:latest[key] if latest[key] is not None else -1000
                     for key in [

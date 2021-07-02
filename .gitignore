@@ -1,1 +1,3 @@
 config.py
+scrape_and_parse.sh
+api_deploy.sh
