@@ -23,12 +23,19 @@ for post in data['result']:
          'bath': re.compile(r'\d+(?=\s+bath)|$',re.IGNORECASE),
          'baths': re.compile(r'\d+(?=\s+baths)|$',re.IGNORECASE),
          'price': re.compile(r'\$[0-9]+|$'),
-         'address': re.compile(r'\d+\s[A-z]+\s+(?:Avenue|Crescent|Lane|Road|Boulevard|Drive|Street|Ave|Cr|Dr|Rd|Blvd|Ln|St)\.?\b|$',re.IGNORECASE)
+         'address': re.compile(r'\d+\s[A-z]+\s+(?:Avenue|Crescent|Lane|Road|Boulevard|Drive|Street|Ave|Cr|Dr|Rd|Blvd|Ln|St)\.?\b|$',re.IGNORECASE),
+         'sublet': re.compile(r'(\w*sublet\w*)|$',re.IGNORECASE),
+         'lease': re.compile(r'(\w*lease\w*)|$',re.IGNORECASE),
+         'sublease': re.compile(r'(\w*sublease\w*)|$',re.IGNORECASE)
+
      }
 
     body_dict = {
         'utilities': re.compile(r'(?<=\butilities are\s)(\w+).group()|$',re.IGNORECASE),
         'address2': re.compile(r'\d+\s[A-z]+\s+(?:Avenue|Crescent|Lane|Road|Boulevard|Drive|Street|Ave|Cr|Dr|Rd|Blvd|Ln|St)\.?\b|$',re.IGNORECASE)
+        'sublet': re.compile(r'(\w*sublet\w*)|$',re.IGNORECASE),
+        'lease': re.compile(r'(\w*lease\w*)|$',re.IGNORECASE),
+        'sublease': re.compile(r'(\w*sublease\w*)|$',re.IGNORECASE)
     }
 
     for key, rx in title_dict.items():
