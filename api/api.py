@@ -13,8 +13,6 @@ app.config["DEBUG"] = True
 connection_url = 'mongodb+srv://{}:{}@cluster0.oz6gy.mongodb.net/test?retryWrites=true&w=majority'.format(config.username,config.password)
 client = pymongo.MongoClient(connection_url)
 Database = client.get_database('fb_posts')
-#fb_housing_posts = Database.fb_housing_posts
-
 
 @app.route('/add-housing-posts/', methods=['POST'])
 def add_housing_posts():
@@ -71,6 +69,19 @@ def get_most_recent_post():
     else:
         data = {"post_id":None}
         return json.dumps(data, indent = 4)
+
+@app.route('/display_latest_post/', methods=['GET'])
+def display_latest_post():
+    fb_processed_posts = Database.fb_processed_posts
+    latest = fb_processed_posts.find_one(sort=[( '_id', pymongo.DESCENDING )])
+    data = {
+            key:latest[key] if latest[key] is not None else -1000
+                for key in [
+                    'listing_title','listing_price','bed','bath','address','post_text', 
+                    'username','available','post_url'
+                ]
+            }
+    return json.dumps(data, indent = 4)
 
 if __name__ == '__main__':
     app.run()
