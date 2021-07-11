@@ -78,7 +78,7 @@ def display_latest_post():
             key:latest[key] if latest[key] is not None else -1000
                 for key in [
                     'listing_title','listing_price','bed','bath','address','post_text', 
-                    'username','available','post_url'
+                    'username','available','post_url','lease','sublease','sublet'
                 ]
             }
     return json.dumps(data, indent = 4)

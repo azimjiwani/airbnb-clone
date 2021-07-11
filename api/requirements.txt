@@ -8,3 +8,6 @@ datetime
 dnspython
 regex
 python-dotenv
+Flask-RESTful
+Flask-Cors
+gunicorn
