@@ -2,6 +2,7 @@ import re
 import pymongo
 import jsonify
 import requests
+import urllib.parse
 
 url = "http://localhost:5000/get-unprocessed-posts/"
 data = requests.get(url = url).json()
@@ -79,6 +80,14 @@ for post in data['result']:
     if ('address' not in parsed_dict) and ('address1' in parsed_dict):
         parsed_dict['address'] = parsed_dict.pop('address1')
 
+    if 'address' in parsed_dict:
+        parsed_dict['address'] = parsed_dict['address'].title()
+        parsed_dict['address'] = str(parsed_dict['address']) + ', Waterloo, Canada'
+        address = parsed_dict['address']
+        url = 'https://nominatim.openstreetmap.org/search/' + urllib.parse.quote(address) +'?format=json'
+        response = requests.get(url).json()
+        parsed_dict['latitude'] = response[0]["lat"]
+        parsed_dict['longitude'] = response[0]["lon"]
 
     ####
     if ('sublet' in parsed_dict) and ('sublet1' in parsed_dict):
@@ -112,9 +121,6 @@ for post in data['result']:
         parsed_dict['sublease'] = parsed_dict.pop('sublease1')
         parsed_dict['sublease'] = True
     ####
-
-    if 'address' in parsed_dict:
-        parsed_dict['address'] = parsed_dict['address'].title()
     
     parsed_dict['parsed'] = True
     url = "http://localhost:5000/add-processed-posts/"

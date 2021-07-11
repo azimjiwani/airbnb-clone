@@ -10,7 +10,12 @@
  import React from 'react';
  import { StatusBar, SafeAreaView} from 'react-native';
  import HomeScreen from './src/screens/Home';
- import Listing from './src/components/Listing';
+ import Post from './src/components/Post';
+ import feed from './assets/data/feed';
+
+ const post1 = feed[0];
+ const post2 = feed[1];
+ const post3 = feed[2];
  
 //  import Router from './src/navigation/Router';
  
@@ -24,7 +29,7 @@
        <StatusBar barStyle="dark-content" />
         <SafeAreaView>
         {/* <HomeScreen/> */}
-          <Listing/>
+          <Post post = {post1}/>
         </SafeAreaView>
      </>
    );

@@ -11,3 +11,4 @@ python-dotenv
 Flask-RESTful
 Flask-Cors
 gunicorn
+urllib
