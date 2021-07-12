@@ -15,7 +15,7 @@ const HomeScreen = (props) => {
             </Pressable>
             <ImageBackground source = {require('frontend/assets/images/wallpaper.jpg')} style={styles.image}>
             {/* Title */}
-            <Text style={styles.title}>Student Housing In Waterloo</Text>
+            <Text style={styles.title}>Find Your Next Home</Text>
             {/* Button */}
             <Pressable
                 style={styles.button}
