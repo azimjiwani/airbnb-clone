@@ -12,6 +12,7 @@
  import HomeScreen from './src/screens/Home';
  import Post from './src/components/Post';
  import feed from './assets/data/feed';
+ import SearchResultsScreen from './src/screens/SearchResult'
 
  const post1 = feed[0];
  const post2 = feed[1];
@@ -20,7 +21,7 @@
 //  import Router from './src/navigation/Router';
  
 //  import HomeScreen from './src/screens/Home';
- 
+
 //  import { withAuthenticator } from 'aws-amplify-react-native';
  
  const App: () => React$Node = () => {
@@ -29,7 +30,8 @@
        <StatusBar barStyle="dark-content" />
         <SafeAreaView>
         {/* <HomeScreen/> */}
-          <Post post = {post1}/>
+          {/* <Post post = {post1}/> */}
+          <SearchResultsScreen/>
         </SafeAreaView>
      </>
    );
