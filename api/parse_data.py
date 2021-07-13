@@ -86,8 +86,9 @@ for post in data['result']:
         address = parsed_dict['address']
         url = 'https://nominatim.openstreetmap.org/search/' + urllib.parse.quote(address) +'?format=json'
         response = requests.get(url).json()
-        parsed_dict['latitude'] = response[0]["lat"]
-        parsed_dict['longitude'] = response[0]["lon"]
+        if len(response) > 0:
+            parsed_dict['latitude'] = response[0]["lat"]
+            parsed_dict['longitude'] = response[0]["lon"]
 
     ####
     if ('sublet' in parsed_dict) and ('sublet1' in parsed_dict):

@@ -14,6 +14,7 @@
  import feed from './assets/data/feed';
  import SearchResultsScreen from './src/screens/SearchResult';
  import LocationSearchScreen from './src/screens/LocationSearch';
+ import FiltersScreen from './src/screens/Filters';
 
  const post1 = feed[0];
  const post2 = feed[1];
@@ -33,7 +34,8 @@
         {/* <HomeScreen/> */}
           {/* <Post post = {post1}/> */}
           {/* <SearchResultsScreen/> */}
-          <LocationSearchScreen/>
+          {/* <LocationSearchScreen/> */}
+          <FiltersScreen/>
         </SafeAreaView>
      </>
    );
