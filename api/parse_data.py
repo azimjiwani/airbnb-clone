@@ -89,6 +89,8 @@ for post in data['result']:
         if len(response) > 0:
             parsed_dict['latitude'] = response[0]["lat"]
             parsed_dict['longitude'] = response[0]["lon"]
+        
+        parsed_dict['city'] = "Waterloo, ON, Canada"
 
     ####
     if ('sublet' in parsed_dict) and ('sublet1' in parsed_dict):

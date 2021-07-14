@@ -1,3 +1,4 @@
 api/config.py
 api/env
 api/__pycache__
+frontend/.env
