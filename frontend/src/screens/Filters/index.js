@@ -95,7 +95,21 @@ const FiltersScreen = (props) => {
             </View>
 
             <View>
-                <Pressable style={{marginBottom:30, backgroundColor:'#f15454', alignItems:'center', justifyContent:'center', height:50, marginHorizontal:20, borderRadius:10}}>
+                <Pressable onPress={() =>
+                    navigation.navigate('Home', {
+                        screen: 'Explore',
+                        params: {
+                            screen: 'SearchResults',
+                        },
+                    })
+                }
+                style={{marginBottom:30,
+                backgroundColor:'#f15454',
+                alignItems:'center',
+                justifyContent:'center',
+                height:50,
+                marginHorizontal:20,
+                borderRadius:10}}>
                     <Text style={{fontSize:18, color:'white', fontWeight:'bold'}}>Show Results</Text>
                 </Pressable>
             </View>
