@@ -60,6 +60,13 @@
             ReferencedContainer = "container:frontend.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "API_KEY"
+            value = "&quot;AIzaSyAHUR8_JTvn2Jrp8Ykbvz2_96wFgZnxgMo&quot;"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

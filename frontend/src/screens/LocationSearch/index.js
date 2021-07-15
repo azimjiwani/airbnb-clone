@@ -21,8 +21,7 @@ const LocationSearchScreen = (props) => {
                 }}
                 fetchDetails
                 styles={{
-                    textInput:styles.textInput,
-
+                    textInput:styles.textInput
                 }}
                 query={{
                     key: API_KEY,
