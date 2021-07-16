@@ -28,15 +28,13 @@ const styles = StyleSheet.create({
     height: '100%',
     aspectRatio: 1,
     resizeMode: 'cover',
-    borderRadius: 10,
   },
   bed: {
-    marginVertical: 10,
+    marginVertical: 5,
     color: '#5b5b5b',
   },
   title: {
     fontSize: 20,
-    lineHeight: 26,
   },
   rentalType: {
     fontSize: 18,
@@ -47,6 +45,8 @@ const styles = StyleSheet.create({
     lineHeight: 26,
   },
   price: {
+    fontSize: 15,
+    marginVertical: 10,
     fontWeight: 'bold',
   },
 });

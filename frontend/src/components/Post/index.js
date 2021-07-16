@@ -10,7 +10,7 @@ const Post = (props) => {
             {/* image */}
             <Image style={styles.coverImage} source={{uri:post.image}}/>
             {/* bed & bath */}
-            <Text style = {styles.bed}>{post.bed}  bed {post.bath} bath</Text>
+            <Text style = {styles.bed}>{post.bed} bed {post.bath} bath</Text>
             {/* Title */}
             <Text style = {styles.title}>{post.title}</Text>
             {/* address */}

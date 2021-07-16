@@ -13,12 +13,10 @@ const Post = (props) => {
                 <Image style={styles.coverImage} source={{uri:post.image}}/>
 
                 <View style={{flex:1, marginHorizontal:10}}>
-                    {/* Title */}
-                    <Text style = {styles.title}>{post.title}</Text>
                     {/* bed & bath */}
                     <Text style = {styles.bed}>{post.bed}  bed {post.bath} bath</Text>
-                    {/* address */}
-                    <Text style = {styles.location}>{post.location}</Text>
+                    {/* Title */}
+                    <Text style = {styles.title} numberOfLines={2}>{post.title}</Text>
                     {/* rental type */}
                     <Text style = {styles.rentalType}>{post.rentalType}</Text>
                     {/* price */}

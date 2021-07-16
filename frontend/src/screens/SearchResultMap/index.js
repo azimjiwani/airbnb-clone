@@ -1,5 +1,5 @@
 import React, {useState}from 'react';
-import { View,Text } from 'react-native';
+import { View,Text, FlatList,useWindowDimensions } from 'react-native';
 import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 import locations from '../../../assets/data/feed';
 import CustomMarker from '../../components/CustomMarker';
@@ -8,6 +8,7 @@ import PostCarouselItem from '../../components/PostCarouselItem'
 const SearchResultMap = (props) => {
 
     const [selectedLocationId,setSelectedLocationId] = useState(null);
+    const screenWidth = useWindowDimensions().width;
 
     return (
         <View style = {{width:'100%', height:'100%'}}>
@@ -30,8 +31,17 @@ const SearchResultMap = (props) => {
                     />)
                 }
             </MapView>
-            <View style={{position:'absolute', bottom:45}}>
-                <PostCarouselItem post={locations[0]} />
+            <View style={{position:'absolute',bottom:0}}>
+                <FlatList 
+                    data={locations} 
+                    renderItem={({item})=> <PostCarouselItem post={item} />}
+                    horizontal
+                    showsHorizontalScrollIndicator={false}
+                    snapToInterval={screenWidth-60}
+                    snapToAlignment={'center'}
+                    decelerationRate={'fast'}
+                    
+                />
             </View>
         </View>
     );
