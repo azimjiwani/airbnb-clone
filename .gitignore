@@ -4,3 +4,4 @@ api/__pycache__
 frontend/.env
 frontend/ios/frontend/AppDelegate.m
 frontend/android/app/src/main/AndroidManifest.xml
+frontend/ios/frontend.xcodeproj/xcshareddata/xcschemes/frontend.xcscheme
