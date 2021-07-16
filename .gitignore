@@ -2,3 +2,5 @@ api/config.py
 api/env
 api/__pycache__
 frontend/.env
+frontend/ios/frontend/AppDelegate.m
+frontend/android/app/src/main/AndroidManifest.xml

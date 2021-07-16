@@ -3,6 +3,7 @@ import { View,Text } from 'react-native';
 import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 import locations from '../../../assets/data/feed';
 import CustomMarker from '../../components/CustomMarker';
+import PostCarouselItem from '../../components/PostCarouselItem'
 
 const SearchResultMap = (props) => {
 
@@ -18,16 +19,20 @@ const SearchResultMap = (props) => {
                 longitudeDelta: 0.0421,
                 }}
             >
-                {locations.map(place => 
+                {locations.map(locations => 
                     <CustomMarker
-                        coordinate={place.coordinate}
-                        price = {place.price}
-                        isSelected={place.id === selectedLocationId}
-                        onPress={() => setSelectedLocationId(place.id)}
+                        key={locations.id}
+                        coordinate={locations.coordinate}
+                        price = {locations.price}
+                        isSelected={locations.id === selectedLocationId}
+                        onPress={() => setSelectedLocationId(locations.id)}
                         
                     />)
                 }
             </MapView>
+            <View style={{position:'absolute', bottom:45}}>
+                <PostCarouselItem post={locations[0]} />
+            </View>
         </View>
     );
 }
