@@ -2,11 +2,18 @@ import React from 'react';
 import { View,Text,Image,Pressable } from 'react-native';
 import styles from './styles';
 import Fontisto from 'react-native-vector-icons/Fontisto';
+import {useNavigation} from '@react-navigation/native';
 
 const Post = (props) => {
     const post = props.post;
+
+    const navigation = useNavigation();
+    
+    const goToPostScreen = () => {
+        navigation.navigate('Post',{postId:post.id})
+    }
     return (
-        <View style={styles.container}>
+        <Pressable onPress={goToPostScreen} style={styles.container}>
             {/* image */}
             <Image style={styles.coverImage} source={{uri:post.image}}/>
             {/* bed & bath */}
@@ -24,7 +31,7 @@ const Post = (props) => {
                 <Text style = {styles.price}>${post.price} </Text>
                 / month
             </Text>
-        </View>
+        </Pressable>
     );
 }
 

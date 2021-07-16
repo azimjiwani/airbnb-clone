@@ -16,24 +16,13 @@ import SearchResultsScreen from './src/screens/SearchResult';
 import LocationSearchScreen from './src/screens/LocationSearch';
 import FiltersScreen from './src/screens/Filters';
 import Router from './src/navigation/Router';
-
-
-const post1 = feed[0];
-const post2 = feed[1];
-const post3 = feed[2];
-
-//  import { withAuthenticator } from 'aws-amplify-react-native';
+import PostScreen from './src/screens/PostScreen';
 
 const App: () => React$Node = () => {
   return (
     <>
       <StatusBar barStyle="dark-content"/>
-        <Router/>
-        {/* <HomeScreen/> */}
-        {/* <Post post = {post1}/> */}
-        {/* <SearchResultsScreen/> */}
-        {/* <LocationSearchScreen/> */}
-        {/* <FiltersScreen/> */}
+      <Router/>
     </>
   );
 };
