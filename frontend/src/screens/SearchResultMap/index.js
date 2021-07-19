@@ -23,23 +23,24 @@ const SearchResultMap = (props) => {
         if (!selectedLocationId || !flatList){
             return;
         }
-        const index = locations.findIndex(location => location.id === selectedLocationId);
+        const index = locations.findIndex(location => location.id === selectedLocationId)
         flatList.current.scrollToIndex({index})
         const selectedLocation = locations[index];
         const currRegion = {
             latitude:selectedLocation.coordinate.latitude,
             longitude:selectedLocation.coordinate.longitude,
-            latitudeDelta:0.35,
-            longitudeDelta:0.35,
+            latitudeDelta:0.8,
+            longitudeDelta:0.8,
         }
         mapRef.current.animateToRegion(currRegion)
     }, [selectedLocationId]);
 
     return (
-        <View style = {{width:'100%', height:'100%'}}>
+        <View style={{width: '100%', height: '100%'}}>
             <MapView 
                 ref={mapRef}
-                provider={PROVIDER_GOOGLE}style={{width:'100%', height:'100%'}}
+                style={{width: '100%', height: '100%'}}
+                provider={PROVIDER_GOOGLE}
                 initialRegion={{
                 latitude: 43.469761,
                 longitude: -80.538811,
@@ -58,7 +59,7 @@ const SearchResultMap = (props) => {
                     />)
                 }
             </MapView>
-            <View style={{position:'absolute',bottom:0}}>
+            <View style={{position:'absolute', bottom:0}}>
                 <FlatList 
                     ref={flatList}
                     data={locations} 
@@ -66,8 +67,8 @@ const SearchResultMap = (props) => {
                     horizontal
                     showsHorizontalScrollIndicator={false}
                     snapToInterval={screenWidth-60}
-                    snapToAlignment={'center'}
-                    decelerationRate={'fast'}
+                    snapToAlignment={"center"}
+                    decelerationRate={"fast"}
                     viewabilityConfig={viewConfig.current}
                     onViewableItemsChanged={onViewChanged.current}
                 />

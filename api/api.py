@@ -83,5 +83,14 @@ def display_latest_post():
             }
     return json.dumps(data, indent = 4)
 
+@app.route('/get_search_results/', methods=['GET'])
+def get_search_results(parameters):
+    fb_processed_posts = Database.fb_processed_posts
+    params = parameters
+    output = []
+    for post in fb_processed_posts.find(params):
+        output.append(post)
+    return jsonify({'result' : output})
+
 if __name__ == '__main__':
     app.run()

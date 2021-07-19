@@ -1,17 +1,19 @@
 import React from 'react';
 import { View,Text,Image,Pressable,useWindowDimensions } from 'react-native';
 import styles from './styles';
-import Fontisto from 'react-native-vector-icons/Fontisto';
 import {useNavigation} from '@react-navigation/native';
 
 const Post = (props) => {
+
     const post = props.post;
+    const width = useWindowDimensions().width;
+
     const navigation = useNavigation();
     
     const goToPostScreen = () => {
-        navigation.navigate('Post',{postId:post.id})
+        navigation.navigate('Post', {postId:post.id})
     }
-    const width = useWindowDimensions().width;
+
     return (
         <Pressable onPress={goToPostScreen} style={[styles.container, {width:width-60}]}>
             <View style={styles.innerContainer}>
@@ -34,6 +36,6 @@ const Post = (props) => {
             </View>
         </Pressable>
     );
-}
+};
 
 export default Post;

@@ -14,6 +14,6 @@ const PostScreen = (props) => {
             <DetailedPost post={post} />
         </View>
     );
-}
+};
 
 export default PostScreen;

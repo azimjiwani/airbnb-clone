@@ -1,7 +1,6 @@
 import React from 'react';
 import { View,Text,Image,Pressable,ScrollView } from 'react-native';
 import styles from './styles';
-import Fontisto from 'react-native-vector-icons/Fontisto';
 
 const Post = (props) => {
     const post = props.post;
@@ -29,6 +28,6 @@ const Post = (props) => {
             </View>
         </ScrollView>
     );
-}
+};
 
 export default Post;

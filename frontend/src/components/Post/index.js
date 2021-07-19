@@ -1,16 +1,16 @@
 import React from 'react';
 import { View,Text,Image,Pressable } from 'react-native';
 import styles from './styles';
-import Fontisto from 'react-native-vector-icons/Fontisto';
 import {useNavigation} from '@react-navigation/native';
 
 const Post = (props) => {
+    
     const post = props.post;
 
     const navigation = useNavigation();
     
     const goToPostScreen = () => {
-        navigation.navigate('Post',{postId:post.id})
+        navigation.navigate('Post', {postId: post.id})
     }
     return (
         <Pressable onPress={goToPostScreen} style={styles.container}>
@@ -33,6 +33,6 @@ const Post = (props) => {
             </Text>
         </Pressable>
     );
-}
+};
 
 export default Post;

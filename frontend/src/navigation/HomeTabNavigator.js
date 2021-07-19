@@ -30,6 +30,6 @@ const HomeTabNavigator = (props) => {
             />
         </Tab.Navigator>
     );
-}
+};
 
 export default HomeTabNavigator;

@@ -116,6 +116,6 @@ const FiltersScreen = (props) => {
 
         </View>
     );
-}
+};
 
 export default FiltersScreen;

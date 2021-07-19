@@ -27,6 +27,6 @@ const HomeScreen = (props) => {
             </ImageBackground>
         </View>
     );
-}
+};
 
 export default HomeScreen;

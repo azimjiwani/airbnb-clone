@@ -16,7 +16,6 @@ const LocationSearchScreen = (props) => {
             <GooglePlacesAutocomplete
                 placeholder='Where are you going?'
                 onPress={(data, details = null) => {
-                    // 'details' is provided when fetchDetails = true
                     navigation.navigate('Filters')
                 }}
                 fetchDetails
@@ -26,13 +25,13 @@ const LocationSearchScreen = (props) => {
                 query={{
                     key: API_KEY,
                     language: 'en',
-                    type:'(cities)'
+                    type: '(cities)'
                 }}
                 suppressDefaultStyles
-                renderRow={(item)=> <SuggestionRow item={item}/>}
+                renderRow={(item) => <SuggestionRow item={item} />}
             />
         </View>
     );
-}
+};
 
 export default LocationSearchScreen;
