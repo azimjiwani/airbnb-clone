@@ -1,2 +1,2 @@
-# student-housing-project
-A student housing project to focus on learning full stack dev primarily backend
+# Airbnb Clone
+A React Native app to focus on learning app dev
